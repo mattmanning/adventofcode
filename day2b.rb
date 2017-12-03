@@ -17,15 +17,13 @@ spreadsheet = <<-SPREADSHEET
 114	605	94	136	96	167	553	395	164	159	284	104	530	551	544	18
 SPREADSHEET
 
-checksum = 0
-spreadsheet.split("\n").each do |row|
+checksum = spreadsheet.split("\n").inject(0) do |sum, row|
   rownums = row.split("\t").map(&:to_i)
   catch :found do
     rownums.each do |num1|
       (rownums - [num1]).each do |num2|
         if (num1 % num2) == 0
-          checksum += (num1 / num2)
-          throw :found
+          throw :found, sum + (num1 / num2)
         end
       end
     end
