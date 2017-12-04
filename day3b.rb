@@ -16,15 +16,6 @@ class NilClass
   end
 end
 
-x = '0'
-y = '0'
-
-grid = {}
-grid[x] = {}
-grid[x][y] = 1 
-
-direction = 'right'
-
 def getsum(grid, x, y)
   [ grid[x+1][y],
     grid[x+1][y+1],
@@ -36,6 +27,15 @@ def getsum(grid, x, y)
     grid[x+1][y-1]
   ].compact.sum
 end
+
+x = '0'
+y = '0'
+
+grid = {}
+grid[x] = {}
+grid[x][y] = 1
+
+direction = 'right'
 
 until grid[x][y] > N do
   case direction
