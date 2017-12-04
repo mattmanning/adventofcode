@@ -16,7 +16,6 @@ class NilClass
   end
 end
 
-n = 1
 x = '0'
 y = '0'
 
@@ -38,7 +37,7 @@ def getsum(grid, x, y)
   ].compact.sum
 end
 
-until n > N do
+until grid[x][y] > N do
   case direction
   when 'right'
     x += 1
@@ -63,4 +62,4 @@ until n > N do
   n = grid[x][y]
 end
 
-puts n
+puts grid[x][y]
